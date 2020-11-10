@@ -1,0 +1,909 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				list-style: none;
+			}
+			.parent{
+				width: 1024px;
+				margin: 0 auto;
+				padding:0 50px;
+			}
+			.title img{width: 100%;}
+			.title{
+				width: 1024px;
+				height: 143px;
+				position: relative;
+			}
+			.title{
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: start;
+				align-items: center;
+				position: relative;
+			}
+			.title_sm{
+				width: 100px !important;
+				height: 35px;
+				display: flex;
+				flex-direction: row ;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+				align-items: center;
+				position: absolute;
+				left: 50px;
+			}
+			.title_sm_nav{
+				width: 35px;
+				height: 35px;
+				padding: 0 5px;
+			}
+			.title_sm_search{
+				width: 35px;
+				height: 35px;
+				margin-left: 10px;
+				padding: 0 5px;
+			}
+			.title_logo{
+				position: absolute;
+				left: 35%;
+			}
+			.title_search div div{
+				width: 35px;height: 35px;
+				float: right;
+			}
+			.title_search_weibo{
+				width: 35px;
+				height: 35px;
+				background: url(./gnb_icon_weibo.png) no-repeat;
+				background-size: 250%;
+				margin-right: 10px;
+			}
+			.title_search .title_input{
+				border-radius: 10px;
+				background-color: #fff;
+			}
+			.title_search{
+				width: 230px;
+				display: flex;
+				position: absolute;
+				right: 1px;
+			}
+			.title_input{
+				height: 38px;
+				border: 1px solid #000;
+			}
+			.title_input input{
+				width: 130px;
+				height: 34px; 
+				background:#fff 95% 10%;
+				border-radius:10px ;
+				padding-left: 5px;
+				outline: 0;
+				border: 0;
+			}
+			
+			.title_input_search{
+				width: 20px;
+				height: 20px;
+				margin-top: 3px;
+			}
+			.title_input_search img{
+				width: 50%;
+			}
+			.title_find{
+				width: 100px;
+				height: 50px;
+				position: absolute;
+				right: 50px;
+				top: 60px;
+			}
+			.title_find_img{
+				width: 30px;
+				height: 30px;
+				margin-top: 5px;
+				position: relative;
+			}
+			.title_find_font_size{
+				font-size: 12px;
+				position: absolute;
+				top: 10px;
+				right: 5px;
+			}
+			.title_share{
+				width: 100px;
+				height: 25px;
+				position: absolute;
+				right: 50px;
+				top: 60px;
+			}
+			.title_share_map{
+				width: 20px;
+				height: 20px;
+				margin-bottom: 2px;
+				position: relative;
+			}
+			.title_share_share{
+				width: 20px;
+				height: 20px;	
+				margin-bottom: 2px;
+				position: absolute;
+				top: 1px;
+				right: 50px;
+			}
+			.title_share_yh{
+				width: 20px;
+				height: 20px;
+				margin-bottom: 2px;
+				position: absolute;
+				top: 1px;
+				right: 20px;
+			}
+			.title_share img{
+				width: 100%;
+			}
+			.nav{
+				width: 1024px;
+				height: 60px;
+			}
+			.nav .list-style {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 1024px;
+				height: 100%;
+				align-items: center;
+			}
+			.list-style .cli{
+				height: 100%;
+				text-align: center;
+				line-height: 60px;
+				padding:0  25px;
+				position: relative;
+			}
+			.list-style .cli:hover{
+				background-color: #FFC107;
+			}
+			.nav-li{
+				position: absolute;
+				background-color: #ff5635;
+				width: 140px;
+				left: 0;
+				font-size: 14px;
+				padding-left: 10px;
+				display: none;
+				z-index: 999;
+			}
+			.nav-cli{
+				height: 40px;
+				line-height: 40px;
+				text-align: left;
+			}
+			.l1:hover .nav-li{
+				display: block !important;
+			}
+			.l2:hover .nav-li{
+				display: block !important;
+			}
+			.l3:hover .nav-li{
+				display: block !important;
+			}
+			.l4:hover .nav-li{
+				display: block !important;
+			}
+			.l5:hover .nav-li{
+				display: block !important;
+			}
+			.l6:hover .nav-li{
+				display: block !important;
+			}
+			.l7:hover .nav-li{
+				display: block !important;
+			}
+			.l8:hover .nav-li{
+				display: block !important;
+			}
+			.content-wrap{
+				background-color:#fff;
+				width: 100%;
+				display: flex;
+			}
+			.content{
+				flex:1;
+				height: 100%;
+				background-color: #fff;
+			}
+			.fg{
+				width: 237px;
+				height: 124px;
+				
+				position: relative;
+			}
+			.food-bg{
+				width: 237px;
+				height: 124px;
+				padding-right: 5px;
+			}
+			.food{
+				 position: absolute;
+				 left: 50%;
+				 top: 40%;
+				 transform: translate(-50%);
+			 }
+			.fg h6{
+				position: absolute;
+				left: 35%;
+				top: 65%;
+			}
+			.bli{
+				font-size: 14px;
+			}
+			.bli ul{
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: space-between;
+			}
+			.bli ul li{
+				font-size: 12px;
+				padding: 10px 0;
+			}
+			.content_wrap{
+				width: 1024px;
+				margin: 0 5px;
+			}
+			.content_title{
+				margin-bottom: 40px;
+			}
+			.content_title_bg{
+				width: 100%;
+				position: relative;
+				background-color: #e8e8e8;
+			}
+			.content_titlt_bg1{
+				width: 1024px;
+			}
+			.content_title_bg1 img{
+				width: 1024px;
+				height: 144px;
+			}
+			.content_title_bg2{
+				position: absolute;
+				top: 29%;
+				left: 40%;
+			}
+			.content_title_span1{
+				position: absolute;
+				top: 25%;
+				left: 44%;
+				font-size: 30px;
+				color: #fe870a;
+			}
+			.content_title_span2{
+				text-align: center;
+				font-size: 12px;
+				color: #a9a9a9;
+				position: absolute;
+				top: 52%;
+				left: 33%;
+			}
+			.content_food_font_size20{
+				font-size: 20px;
+			}
+			.content_food_font_size23{
+				font-size: 23px;
+			}
+			.content_food_font_size12{
+				font-size: 12px;
+			}
+			.content_food_font_size17{
+				font-size: 17px;
+			}
+			.content_food1{
+				position: relative;
+				padding-bottom: 50px;
+			}
+			.carousel-indicators li{
+				width: 0.8rem;height: 0.8rem;
+				border-radius: 50%;
+				background-color: #aaa;
+				margin-left: 0.3rem;
+				margin-right: 0.3rem;
+			}
+			.carousel-indicators .active{
+				background-color: #f00;
+			}
+			@media (min-width:576px) {
+				.content_food_choose {
+					position: absolute !important;
+					top: 500px !important;
+					left: -130px !important;
+					justify-content: flex-start !important;
+				}
+			}
+			@media (min-width:768px) {
+				.content_food_choose {
+					position: absolute !important;
+					top: 320px !important;
+					left: -75px !important;
+					justify-content: flex-start !important;
+				}
+			}
+			@media (min-width:992px) {
+				.content_food_choose {
+					position: absolute !important;
+					top: 360px !important;
+					left: -80px !important;
+					justify-content: flex-start !important;
+				}
+			}
+			.content_food_choose {
+				position: absolute;
+				top: 360px;
+				left: -80px;
+				justify-content: flex-start !important;
+			}
+			.content_sm_food3_bg{
+				height: 130px;
+				background-size: cover;
+				background-image: url(submain_link_bg_foodstory.jpg) ;
+				background-position: 50% 50%;
+				opacity: .2;
+				position: relative;
+			}
+			.content_sm_food3_word{
+				position: absolute;
+				top: 70px;
+				left:80px;
+			}
+			.content_md_food3_bg img{
+				width: 100%;
+				height: 230px ;
+				background-size:200%;
+				background: url(submain_link_bg_foodstory.jpg) cover;
+				background-position: 10% 10% !important;
+				opacity: .2;
+				position: relative;
+			}
+			.content_md_food3_word{
+				position: absolute;
+				top: 100px;
+				left:80px;
+			}
+			.content_lg_food3{
+				position: relative;
+			}
+			.content_lg_food3_word{
+				float: right;
+				width: 150px;
+				position: absolute;
+				top:100px;
+				right: 50px;
+			}
+			.content_sm_food4_ul{
+				height: 200px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				background-color: #f9f9f9;
+				border: 1px solid #000;
+				border-radius: 5px;
+			}
+			.content_sm_food4_ul>li:not(:last-child){
+				border-bottom: 1px solid;
+			}
+			.content_md_food4_ul {
+				height: 230px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				border: 0;
+			}
+			.content_md_food4_ul>li:not(:last-child){
+				border-bottom: 1px solid;
+			}
+			.content_sm_food5_bg{
+				height: 130px;
+				background-size: cover;
+				background-image: url(./submain_link_bg_snack.jpg);
+				background-position: 50% 50%;
+				opacity: .2;
+				position: relative;
+			}
+			.content_sm_food5_word{
+				position: absolute;
+				top: 70px;
+				left:80px;
+			}
+			.content_md_food5_bg img{
+				width: 100%;
+				height: 230px ;
+				background-size:200%;
+				background: url(./submain_link_bg_snack.jpg) cover;
+				background-position: 10% 10% !important;
+				opacity: .2;
+				position: relative;
+			}
+			.content_md_food5_word{
+				position: absolute;
+				top: 100px;
+				left:80px;
+			}
+			.content_lg_food5{
+				position: relative;
+			}
+			.content_lg_food5_word{
+				float: right;
+				width: 150px;
+				position: absolute;
+				top:100px;
+				right: 50px;
+			}
+			.content_sm_food6_bg{
+				height: 130px;
+				background-size: cover;
+				background-image: url(./submain_link_bg_thema.jpg);
+				background-position: 50% 50%;
+				opacity: .2;
+				position: relative;
+			}
+			.content_sm_food6_word{
+				position: absolute;
+				top: 70px;
+				left:80px;
+			}
+			.content_md_food6_bg img{
+				width: 100%;
+				height: 230px ;
+				background-size:200%;
+				background: url(./submain_link_bg_thema.jpg) cover;
+				background-position: 10% 10% !important;
+				opacity: .2;
+				position: relative;
+			}
+			.content_md_food6_word{
+				position: absolute;
+				top: 100px;
+				left:80px;
+			}
+			.content_lg_food6{
+				position: relative;
+			}
+			.content_lg_food6_word{
+				float: right;
+				width: 150px;
+				position: absolute;
+				top:100px;
+				right: 50px;
+			}
+			.font_foot_title_size{
+				font-size:12px;
+				color: #fff;
+			}
+			.foot_li{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="title bg-light">
+				<div class="title_sm d-lg-none mt-3">
+					<div class="title_sm_nav">
+						<img src="./gnb_icon_menu.png" alt>
+					</div>
+					<div class="title_sm_search">
+						<img src="./gnb_icon_searchbox.png" alt>
+					</div>
+				</div>
+			  <div class="title_logo">
+				  <img src="./logo_top.png" alt>
+			  </div>
+			  <div class="title_search d-sm-none d-lg-block d-lg-flex flex-lg-nowrap">
+				  <div class="title_search_weibo"></div>
+					<div class="title_input">
+						<input type="text">
+						<div class="title_input_search mt-2">
+							<img src="./gnb_icon_searchbox.png" alt>
+						</div>
+					</div>
+				</div>
+				<div class="title_find d-sm-none d-md-block d-lg-none mr-2">
+					<div class="title_find_img">
+						<img src="./gnb_icon_find.png" alt>
+					</div>
+					<span class="title_find_font_size">找到我们</span>
+				</div>
+				<div class="title_share d-sm-block d-md-none d-flex flex-row flex-nowrap mt-2">
+					<div class="title_share_map">
+						<img src="./gnb_icon_mobile_map.png" alt>
+					</div>
+					<div class="title_share_share">
+						<img src="./gnb_icon_mobile_share.png" alt>
+					</div>
+					<div class="title_share_yh">
+						<img src="./gnb_icon_mobile_my.png" alt>
+					</div>
+				</div>
+			</div>
+			<div class="nav border-bottom border-dark d-sm-none d-lg-block">
+			  <ul class="list-style">
+					<li class="l1 cli">观光&庆典
+						<ul class="nav-li">
+								<li class="nav-cli">韩国游达人</li>
+								<li class="nav-cli">旅游热点</li>
+								<li class="nav-cli">主题游</li>
+								<li class="nav-cli">UNESCO世界遗产</li>
+								<li class="nav-cli">庆典活动</li>
+								<li class="nav-cli">K-STYLE HUB</li>
+								<li class="nav-cli">韩流观光</li>
+						</ul>
+					</li>
+					<li class="l2 cli">旅游计划
+						<ul class="nav-li">
+							<li class="nav-cli">入境须知</li>
+							<li class="nav-cli">旅游须知</li>
+							<li class="nav-cli">旅游咨询服务</li>
+							<li class="nav-cli">旅游景点</li>
+							<li class="nav-cli">推荐旅游行程</li>
+						</ul>
+					</li>
+					<li class="l3 cli">购物专栏
+						<ul class="nav-li">
+							<li class="nav-cli">购物场所</li>
+							<li class="nav-cli">优惠券汇总</li>
+							<li class="nav-cli">热门商品</li>
+							<li class="nav-cli">购物集锦</li>
+							<li class="nav-cli">购物贴士</li>
+						</ul>
+					</li>
+					<li class="l4 cli">美食天堂
+						<ul class="nav-li">
+							<li class="nav-cli">韩国饮食概况</li>
+							<li class="nav-cli">韩国料理</li>
+							<li class="nav-cli">美味韩食轻松做</li>
+							<li class="nav-cli">美食地区</li>
+							<li class="nav-cli">韩国美食荟萃</li>
+						</ul>
+					</li>
+					<li class="l5 cli">交通指南
+						<ul class="nav-li">
+							<li class="nav-cli">航空</li>
+							<li class="nav-cli">海运</li>
+							<li class="nav-cli">火车</li>
+							<li class="nav-cli">巴士</li>
+							<li class="nav-cli">地铁</li>
+							<li class="nav-cli">出租车</li>
+							<li class="nav-cli">交通贴士</li>
+							<li class="nav-cli">地区交通</li>
+						</ul>
+					</li>
+					<li class="l6 cli">住宿指南
+						<ul class="nav-li">
+							<li class="nav-cli">酒店简介</li>
+							<li class="nav-cli">BENIKEA</li>
+							<li class="nav-cli">住宿设施搜索</li>
+						</ul>
+					</li>
+					<li class="l7 cli">走进韩国
+						<ul class="nav-li">
+							<li class="nav-cli">一般介绍</li>
+							<li class="nav-cli">韩国文化</li>
+							<li class="nav-cli">韩国影像馆</li>
+							<li class="nav-cli">韩国旅游品牌</li>
+							<li class="nav-cli">公告</li>
+						</ul>
+					</li>
+					<li class="l8 cli">自由行
+						<ul class="nav-li">
+							<li class="nav-cli">旅行产品</li>
+							<li class="nav-cli">KPOP</li>
+							<li class="nav-cli">旅程推荐</li>
+							<li class="nav-cli">特别活动</li>
+						</ul>
+					</li>
+			  </ul>
+			</div>
+			<div class="content_wrap">
+				<div class="content_title row no-gutters justify-content-sm-center align-content-sm-center">
+					<div class="content_title_bg col-12">
+						<div class="content_title_bg1">
+							<img src="lnb_title_bg.png" alt>
+						</div>
+						<div class="content_title_bg2">
+							<img src="./submain_title_food.png" alt>
+						</div>
+						<span class="content_title_span1">美食天堂</span>
+						<span class="content_title_span2">韩国之旅，美食宴飨。韩国各地饮食荟萃，美食主题街，
+						<br>
+韩餐轻松做，人气餐厅搜索，只要您愿意，这里必是佳选。</span>
+					</div>
+				</div>
+				<div class="content_food  ">
+					<div class="d-flex flex-wrap  ">
+						<!-- 韩国美食荟萃 -->
+						<div class="col-sm-12 col-md-7 col-lg-8 mt-3">
+							<div class="content_food1 mx-1 bg-light">
+								<h3 class="content_food_font_size20"><b >韩国美食荟萃</b></h3>
+								<div class="content_food1_img mt-3 carousel" data-ride="carousel" id="ul1">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img class="w-100" src="./submain_rolling01.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>不可不知的明洞美味餐厅LIST</b></h3>
+													<p class="content_food_font_size12 mt-4">明洞(명동)是首尔人气最旺的地区之一。</p>
+												</div>
+										</div>
+										<div class="carousel-item">
+											<img class="w-100" src="./submain_rolling02.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>美味并健康的韩国“有机农甜品”</b></h3>
+													<p class="content_food_font_size12 mt-4">甜品只要味道好就受欢迎的假设已经不适合当今市场。</p>
+												</div>
+										</div>
+										<div class="carousel-item">
+											<img class="w-100" src="./submain_rolling03.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>甜美深情的巧克力甜品店TOP 6</b></h3>
+													<p class="content_food_font_size12 mt-4">每到西方情人节所在的2月份，韩国的巧克力商品以及以巧克力为主题的热门商铺都顾客满门。</p>
+												</div>
+										</div>
+										<div class="carousel-item">
+											<img class="w-100" src="./submain_rolling04.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>乘坐深夜巴士出发的“美食首尔之旅”</b></h3>
+													<p class="content_food_font_size12 mt-4">享用美食总是快乐的，不过旅行时在夜晚的街道上吃到的夜宵更加美味，也更加难以忘怀。</p>
+												</div>
+										</div>
+										<div class="carousel-item">
+											<img class="w-100" src="./submain_rolling05.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>一个人更开心！首尔的独餐.独饮PLACE</b></h3>
+													<p class="content_food_font_size12 mt-4">现在有越来越多的朋友喜欢上了一个人吃饭的方式。而独餐.独饮也渐渐成为一种文化。</p>
+												</div>
+										</div>
+										<div class="carousel-item">
+											<img class="w-100" src="./submain_rolling06.jpg" alt>
+												<div class="ml-3 mt-5 content_food1_word">
+													<h3  class="content_food_font_size23"><b>首尔圣诞蛋糕之旅</b></h3>
+													<p class="content_food_font_size12 mt-4">圣诞节应该就是我们翘首以盼12月的一种原因之一了吧。</p>
+												</div>
+										</div>
+									</div>
+									<ul class="carousel-indicators content_food_choose mt-5">
+										<li data-target="#ul1" data-slide-to="0" class="active"></li>
+										<li data-target="#ul1" data-slide-to="1"></li>
+										<li data-target="#ul1" data-slide-to="2"></li>
+										<li data-target="#ul1" data-slide-to="3"></li>
+										<li data-target="#ul1" data-slide-to="4"></li>
+										<li data-target="#ul1" data-slide-to="5"></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- 餐厅搜索 -->
+						<div class="col-sm-12 col-md-5 col-lg-4 mt-3 ">
+							<div class="content_food2 mx-1 bg-light">
+								<h3 class="content_food_font_size20"><b >餐厅搜索</b></h3>
+								<div class="content_food2_img bg-light mt-3 d-sm-block d-md-none">
+									<img class="w-100"  src="./map_bg.png" alt>
+								</div>
+								<div class="content_food2_img bg-light mt-3 d-sm-none d-md-block px-5">
+									<img  src="./map_bg.png" alt>
+								</div>
+							</div>
+						</div>
+						<!-- 韩国饮食概况 -->
+						<div class="col-sm-12 d-sm-block d-md-none d-lg-none my-3">
+							<div class="content_sm_food3 d-sm-block d-md-none d-lg-none">
+								<h3 class="content_food_font_size20"><b >韩国饮食概况</b></h3>
+								<div class="content_sm_food3_bg mt-3">
+									<img class="w-100 d-sm-none " src="./submain_link_bg_foodstory.jpg" alt>
+								</div>
+								<div class="content_sm_food3_word">
+									<div class="redline mb-2">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17 ">韩国饮食概况</h3></b>
+									<p class="content_food_font_size12 mt-2">韩食的核心是米饭和泡菜，同时搭配以多种多样的副食</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 d-sm-none d-md-block d-lg-none my-3">
+							<div class="content_md_food3 ">
+								<h3 class="content_food_font_size20"><b >韩国饮食概况</b></h3>
+								<div class="content_md_food3_bg mt-3">
+									<img src="./submain_link_bg_foodstory.jpg" alt>
+								</div>
+								<div class="content_md_food3_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<b class="content_food_font_size17">韩国饮食概况</b>
+									<p class="content_food_font_size12 mt-3">韩食的核心是米饭和泡菜，同时搭配以多种多样的副食</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 d-sm-none d-md-none d-lg-block my-3">
+							<div class="content_lg_food3 d-sm-none d-md-none d-lg-block bg-light">
+								<h3 class="content_food_font_size20"><b >韩国饮食概况</b></h3>
+								<div class="content_lg_food3_bg mt-3">
+									<img src="./submain_link_bg_foodstory.jpg" alt>
+								</div>
+								<div class="content_lg_food3_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17">韩国饮食概况</b></h3>
+									<p class="content_food_font_size12 mt-3">韩食的核心是米饭和泡菜，同时搭配以多种多样的副食</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 mt-3 d-sm-block d-md-none my-3">
+							<div class="content_sm_food4 d-sm-block d-md-none">
+								<h3 class="content_food_font_size20"><b>美味韩食轻松做</b></h3>
+								<ul class="content_sm_food4_ul">
+									<li class="content_food_font_size12 ml-3">大酱汤</li>
+									<li class="content_food_font_size12 ml-3">拌饭</li>
+									<li class="content_food_font_size12 ml-3">嫩豆腐锅</li>
+									<li class="content_food_font_size12 ml-3">泡菜汤</li>
+									<li class="content_food_font_size12 ml-3">参鸡汤</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3 d-sm-none d-md-block">
+							<div class="content_md_food4 d-sm-none d-md-block bg-light mb-3">
+								<div class="content_md_food4_title d-flex flex-nowrap justify-content-between">
+									<h3 class="content_food_font_size20"><b>美味韩食轻松做</b></h3>
+									<span class="content_food_font_size12 float-right mt-2">更多 ></span>
+								</div>
+								<div class=" d-flex flex-nowrap justify-content-start align-content-center" >
+									<div class="content_md_food4_bg carousel" data-ride="carousel">
+										<div class="carousel-item active">
+											<img src="./1926677_image2_1.jpg" alt>
+										</div>
+										<div class="carousel-item">
+											<img src="./1926633_image2_1.jpg" alt>
+										</div>
+										<div class="carousel-item">
+											<img src="./1926686_image2_1.jpg" alt>
+										</div>
+										<div class="carousel-item">
+											<img src="./1926698_image2_1.jpg" alt>
+										</div>
+										<div class="carousel-item">
+											<img src="./1926974_image2_1.jpg" alt>
+										</div>
+									</div>
+									<div class="content_md_food4_tj ">
+										<ul class="content_md_food4_ul ml-5">
+											<li class="content_food_font_size12 ml-3">大酱汤</li>
+											<li class="content_food_font_size12 ml-3">拌饭</li>
+											<li class="content_food_font_size12 ml-3">嫩豆腐锅</li>
+											<li class="content_food_font_size12 ml-3">泡菜汤</li>
+											<li class="content_food_font_size12 ml-3">参鸡汤</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 街头小吃 -->
+						<div class="col-sm-12 mt-3 d-sm-block d-md-none d-lg-none my-3">
+							<div class="content_sm_food5 d-sm-block d-md-none d-lg-none">
+								<h3 class="content_food_font_size20"><b >街头小吃</b></h3>
+								<div class="content_sm_food5_bg mt-3">
+									<img class="w-100 d-sm-none " src="./submain_link_bg_snack.jpg" alt>
+								</div>
+								<div class="content_sm_food5_word">
+									<div class="redline mb-2">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17 ">街头小吃</b></h3>
+									<p class="content_food_font_size12 mt-2">面食是用面粉制作的食物，在韩国指的是可以以实惠的价格简单食用的饮食</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 d-sm-none d-md-block d-lg-none my-3">
+							<div class="content_md_food5 ">
+								<h3><b class="content_food_font_size20">街头小吃</b></h3>
+								<div class="content_md_food5_bg mt-3">
+									<img src="./submain_link_bg_snack.jpg" alt>
+								</div>
+								<div class="content_md_food5_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17">街头小吃</b></h3>
+									<p class="content_food_font_size12 mt-3">面食是用面粉制作的食物，在韩国指的是可以以实惠的价格简单食用的饮食</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 d-sm-none d-md-none d-lg-block my-3">
+							<div class="content_lg_food5 d-sm-none d-md-none d-lg-block bg-light">
+								<h3><b class="content_food_font_size20">街头小吃</b></h3>
+								<div class="content_lg_food5_bg mt-3">
+									<img src="./submain_link_bg_snack.jpg" alt>
+								</div>
+								<div class="content_lg_food5_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17">街头小吃</b></h3>
+									<p class="content_food_font_size12 mt-3">面食是用面粉制作的食物，在韩国指的是可以以实惠的价格简单食用的饮食</p>
+								</div>
+							</div>
+						</div>
+						<!-- 韩国美食主题街 -->
+						<div class="col-sm-12 mt-3 d-sm-block d-md-none d-lg-none my-3">
+							<div class="content_sm_food6 d-sm-block d-md-none d-lg-none">
+								<h3 class="content_food_font_size20"><b >宫廷小吃</b></h3>
+								<div class="content_sm_food6_bg mt-3">
+									<img class="w-100 d-sm-none " src="./submain_link_bg_thema.jpg" alt>
+								</div>
+								<div class="content_sm_food6_word">
+									<div class="redline mb-2">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17 ">宫廷小吃</b></h3>
+									<p class="content_food_font_size12 mt-2">韩国每个地区都有各自长足发展的饮食，吸引着热爱该地区美食的游客前往品尝</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 d-sm-none d-md-block d-lg-none my-3 ">
+							<div class="content_md_food6 ">
+								<h3><b class="content_food_font_size20">宫廷小吃</b></h3>
+								<div class="content_md_food6_bg mt-3">
+									<img src="./submain_link_bg_thema.jpg" alt>
+								</div>
+								<div class="content_md_food6_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17">宫廷小吃</b></h3>
+									<p class="content_food_font_size12 mt-3">韩国每个地区都有各自长足发展的饮食，吸引着热爱该<br>地区美食的游客前往品尝</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 d-sm-none d-md-none d-lg-block my-3 ">
+							<div class="content_lg_food6 d-sm-none d-md-none d-lg-block bg-light">
+								<h3><b class="content_food_font_size20">宫廷小吃</b></h3>
+								<div class="content_lg_food6_bg mt-3">
+									<img src="./submain_link_bg_thema.jpg" alt>
+								</div>
+								<div class="content_lg_food6_word">
+									<div class="redline mb-3">
+										<img src="./bg_redline_submain.png" alt>
+									</div>
+									<h3><b class="content_food_font_size17">宫廷小吃</b></h3>
+									<p class="content_food_font_size12 mt-3">韩国每个地区都有各自长足发展的饮食，吸引着热爱该地区美食的游客前往品尝</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="foot">
+					<div class="d-flex justify-content-center bg-dark ">
+						<ul class="list-unstyled row no-gutters col-12 font_foot_title_size justify-content-lg-around text-sm-center">
+							<li class=" pt-3 col-sm-6 col-lg-2 "><span>旅游资讯翻译热线</span></li>
+							<li class=" pt-3 col-sm-6 col-lg-2 "><span>预约指南</span></li>
+							<li class=" pt-3 col-sm-6 col-lg-2 "><span>电子书(E-Books)</span></li>
+							<li class=" pt-3 col-sm-6 col-lg-2 "><span>韩国医疗观光</span></li>
+							<li class=" pt-3 col-sm-6 col-lg-2 "><span>本呢客雅</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+		*{
+			margin: 0;
+		 	padding: 0;
+		 	box-sizing: border-box;
+			list-style: none;
+		}
+		#parent{
+			width: 1024px;
+			margin: 0 auto;
+		}
+		.title img{width: 100%;}
+		.title{
+			width: 1135;
+			height: 143px;
+			position: relative;
+		}
+		.title{
+			display: flex;
+		  flex-wrap: nowrap;
+			justify-content: start;
+			align-items: center;
+			position: relative;
+		}
+		.title_sm{
+			width: 100px !important;
+			height: 35px;
+			display: flex;
+			flex-direction: row ;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			left: 10px;
+		}
+		.title_sm_nav{
+			width: 35px;
+			height: 35px;
+			padding: 0 5px;
+		}
+		.title_sm_search{
+			width: 35px;
+			height: 35px;
+			margin-left: 10px;
+			padding: 0 5px;
+		}
+		.title_logo{
+			position: absolute;
+			left: 35%;
+		}
+		.title_search div div{
+			width: 35px;
+			height: 35px;
+			float: right;
+		}
+		.title_search_weibo{
+			width: 35px;
+			height: 35px;
+			background: url(./gnb_icon_weibo.png) no-repeat;
+			background-size: 250%;
+			margin-right: 10px;
+		}
+		.title_search .title_input{
+			border-radius: 10px;
+			background-color: #fff;
+		}
+		.title_search{
+			width: 230px;
+			display: flex;
+			position: absolute;
+	    right: 1px;
+		}
+		.title_input{
+			height: 38px;
+			border: 1px solid #000;
+		}
+		.title_input input{
+			width: 130px;
+		  height: 34px; 
+		  background:#fff 95% 10%;
+		  border-radius:10px ;
+			padding-left: 5px;
+			outline: 0;
+			border: 0;
+		}
+		
+		.title_input_search{
+			width: 20px;
+			height: 20px;
+		  margin-top: 3px;
+		}
+		.title_input_search img{
+			width: 50%;
+		}
+		.title_find{
+			width: 100px;
+			height: 50px;
+			position: absolute;
+			right: 20px;
+			top: 60px;
+		}
+		.title_find_img{
+			width: 30px;
+			height: 30px;
+			margin-top: 5px;
+			position: relative;
+		}
+		.title_find_font_size{
+			font-size: 12px;
+			position: absolute;
+			top: 10px;
+			right: 5px;
+		}
+		.title_share{
+			width: 100px;
+			height: 25px;
+			position: absolute;
+			right: 40px;
+			top: 60px;
+		}
+		.title_share_map{
+			width: 20px;
+			height: 20px;
+			margin-bottom: 2px;
+			position: relative;
+		}
+		.title_share_share{
+			width: 20px;
+			height: 20px;	
+			margin-bottom: 2px;
+			position: absolute;
+			top: 1px;
+			right: 50px;
+		}
+		.title_share_yh{
+			width: 20px;
+			height: 20px;
+			margin-bottom: 2px;
+			position: absolute;
+			top: 1px;
+			right: 20px;
+		}
+		.title_share img{
+			width: 100%;
+		}
+		.nav{
+			width: 1024px;
+			height: 60px;
+		}
+		.nav .list-style {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 1024px;
+			height: 100%;
+			align-items: center;
+		}
+		.list-style .cli{
+			height: 100%;
+			text-align: center;
+			line-height: 60px;
+			padding:0  25px;
+			position: relative;
+		}
+		.list-style .cli:hover{
+			background-color: #FFC107;
+		}
+		.nav-li{
+			position: absolute;
+			background-color: #ff5635;
+			width: 140px;
+			left: 0;
+			font-size: 14px;
+			padding-left: 10px;
+			display: none;
+			z-index: 999;
+		}
+		.nav-cli{
+			height: 40px;
+			line-height: 40px;
+			text-align: left;
+		}
+		.l1:hover .nav-li{
+			display: block !important;
+		}
+		.l2:hover .nav-li{
+			display: block !important;
+		}
+		.l3:hover .nav-li{
+			display: block !important;
+		}
+		.l4:hover .nav-li{
+			display: block !important;
+		}
+		.l5:hover .nav-li{
+			display: block !important;
+		}
+		.l6:hover .nav-li{
+			display: block !important;
+		}
+		.l7:hover .nav-li{
+			display: block !important;
+		}
+		.l8:hover .nav-li{
+			display: block !important;
+		}
+		.content-wrap{
+			background-color:#fff;
+			width: 100%;
+			display: flex;
+		}
+		.nav-card{
+			width: 240px;
+			border-left: #000;
+		}
+		.card_width{
+			width:239px !important;
+		}
+		.content{
+			flex:1;
+			height: 100%;
+			background-color: #fff;
+		}
+		.fg{
+			width: 237px;
+			height: 124px;
+			background-color: #e8e8e8;
+			position: relative;
+		}
+		.food-bg{
+			width: 237px;
+			height: 122px;
+		}
+   	    .food{
+			 position: absolute;
+			 left: 50%;
+			 top: 40%;
+			 transform: translate(-50%);
+		 }
+		.fg h6{
+			position: absolute;
+			left: 35%;
+			top: 65%;
+		}
+        .bli{
+			font-size: 14px;
+		}
+		.bli ul{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: space-between;
+		}
+		.bli ul li{
+			font-size: 12px;
+			padding: 10px 0;
+		}
+		.card-body{
+			padding: 0;
+		}
+		.content-wrap{
+			border-left: #000;
+			border-right: #000;
+		}
+		.content{
+			padding: 30px 40px;
+		}
+		.content .font_title_size{
+			font-size:14px !important;
+		}
+		.content .font_content_size{
+			font-size:12px;
+		}
+		.content_content{
+			padding: 19px;
+		}
+		.font_foot_title_size{
+			font-size:12px;
+			color: #fff;
+		}
+		.foot_li{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="parent">
+	  <div class="title bg-light">
+			<div class="title_sm d-lg-none">
+				<div class="title_sm_nav">
+					<img src="./gnb_icon_menu.png" alt>
+				</div>
+				<div class="title_sm_search">
+					<img src="./gnb_icon_searchbox.png" alt>
+				</div>
+			</div>
+		  <div class="title_logo">
+			  <img src="./logo_top.png" alt>
+		  </div>
+		  <div class="title_search d-sm-none d-lg-block d-lg-flex flex-lg-nowrap">
+			  <div class="title_search_weibo"></div>
+				<div class="title_input">
+					<input type="text">
+					<div class="title_input_search">
+						<img src="./gnb_icon_searchbox.png" alt>
+					</div>
+				</div>
+			</div>
+			<div class="title_find d-sm-none d-md-block d-lg-none mr-2">
+				<div class="title_find_img">
+					<img src="./gnb_icon_find.png" alt>
+				</div>
+				<span class="title_find_font_size">找到我们</span>
+			</div>
+			<div class="title_share d-sm-block d-md-none d-flex flex-row flex-nowrap">
+				<div class="title_share_map">
+					<img src="./gnb_icon_mobile_map.png" alt>
+				</div>
+				<div class="title_share_share">
+					<img src="./gnb_icon_mobile_share.png" alt>
+				</div>
+				<div class="title_share_yh">
+					<img src="./gnb_icon_mobile_my.png" alt>
+				</div>
+			</div>
+		</div>
+		<div class="nav border-bottom border-dark d-sm-none d-lg-block">
+      <ul class="list-style">
+				<li class="l1 cli">观光&庆典
+					<ul class="nav-li">
+							<li class="nav-cli">韩国游达人</li>
+							<li class="nav-cli">旅游热点</li>
+							<li class="nav-cli">主题游</li>
+							<li class="nav-cli">UNESCO世界遗产</li>
+							<li class="nav-cli">庆典活动</li>
+							<li class="nav-cli">K-STYLE HUB</li>
+							<li class="nav-cli">韩流观光</li>
+					</ul>
+					
+				</li>
+				<li class="l2 cli">旅游计划
+					<ul class="nav-li">
+						<li class="nav-cli">入境须知</li>
+						<li class="nav-cli">旅游须知</li>
+						<li class="nav-cli">旅游咨询服务</li>
+						<li class="nav-cli">旅游景点</li>
+						<li class="nav-cli">推荐旅游行程</li>
+					</ul>
+				</li>
+				<li class="l3 cli">购物专栏
+					<ul class="nav-li">
+						<li class="nav-cli">购物场所</li>
+						<li class="nav-cli">优惠券汇总</li>
+						<li class="nav-cli">热门商品</li>
+						<li class="nav-cli">购物集锦</li>
+						<li class="nav-cli">购物贴士</li>
+					</ul>
+				</li>
+				<li class="l4 cli">美食天堂
+					<ul class="nav-li">
+						<li class="nav-cli">韩国饮食概况</li>
+						<li class="nav-cli">韩国料理</li>
+						<li class="nav-cli">美味韩食轻松做</li>
+						<li class="nav-cli">美食地区</li>
+						<li class="nav-cli">韩国美食荟萃</li>
+					</ul>
+				</li>
+				<li class="l5 cli">交通指南
+					<ul class="nav-li">
+						<li class="nav-cli">航空</li>
+						<li class="nav-cli">海运</li>
+						<li class="nav-cli">火车</li>
+						<li class="nav-cli">巴士</li>
+						<li class="nav-cli">地铁</li>
+						<li class="nav-cli">出租车</li>
+						<li class="nav-cli">交通贴士</li>
+						<li class="nav-cli">地区交通</li>
+					</ul>
+				</li>
+				<li class="l6 cli">住宿指南
+					<ul class="nav-li">
+						<li class="nav-cli">酒店简介</li>
+						<li class="nav-cli">BENIKEA</li>
+						<li class="nav-cli">住宿设施搜索</li>
+					</ul>
+				</li>
+				<li class="l7 cli">走进韩国
+					<ul class="nav-li">
+						<li class="nav-cli">一般介绍</li>
+						<li class="nav-cli">韩国文化</li>
+						<li class="nav-cli">韩国影像馆</li>
+						<li class="nav-cli">韩国旅游品牌</li>
+						<li class="nav-cli">公告</li>
+					</ul>
+				</li>
+				<li class="l8 cli">自由行
+					<ul class="nav-li">
+						<li class="nav-cli">旅行产品</li>
+						<li class="nav-cli">KPOP</li>
+						<li class="nav-cli">旅程推荐</li>
+						<li class="nav-cli">特别活动</li>
+					</ul>
+				</li>
+      </ul>
+		</div>
+		<div class="content-wrap">
+			<div class="nav-card border-left border-dark d-sm-none d-lg-block">
+				<div class=" d-flex flex-wrap  ">
+					<div class="d-flex flex-wrap d-lg-block px-0 card_width" id="parent1">
+						<div class="card rounded-0 bli">
+							<div class="fg">
+								<div class="food"><img src="./lnb_icon_food.png" alt></div>
+								<h6>美食天堂</h6>
+								<div class="food-bg"><img class="w-100" src="./lnb_title_bg.png" alt></div>
+							</div>
+							<div class="card-header"><a data-toggle="collapse" href="#s1">韩国饮食概况</a></div>
+							<div data-parent="#parent1" id="s1" class="collapse">
+								<div class="card-body">
+									<ul class="pl-3 mt-2">
+										<li>韩国饮食的种类</li>
+										<li>韩国饮食的材料</li>
+									</ul>
+									</div>
+							</div>
+							<div class="card-header"><a data-toggle="collapse" href="#s2">韩国料理</a></div>
+							<div data-parent="#parent" id="s2" class="collapse">
+								<div class="card-body">
+									<ul class="pl-3 mt-2">
+										<li>泡菜</li>
+										<li>宫廷料理</li>
+										<li>街头小吃</li>
+										<li>拌饭</li>
+									</ul>
+									</div>
+							</div>
+							<div class="card-header"><a data-toggle="collapse" href="#s3">美味韩食轻松做</a></div>
+							<div data-parent="#parent" id="s3" class="collapse">
+								<div class="card-body">
+									<ul class="pl-3 mt-2">
+										<li>事前准备</li>
+										<li>食谱</li>
+									</ul>
+									</div>
+							</div>
+							<div class="card-header"><a data-toggle="collapse" href="#s4">美食地区</a></div>
+							<div data-parent="#parent" id="s4" class="collapse">
+								<div class="card-body">
+									<ul class="pl-3 mt-2">
+										<li>餐厅搜索</li>
+										<li>特别主题餐厅</li>
+										<li>各地美食美味韩国</li>
+									</ul>
+									</div>
+							</div>
+							<div class="card-header"><a data-toggle="collapse" href="#s5">韩国美食荟萃</a></div>
+							<div data-parent="#parent" id="s5" class="collapse">
+								<div class="card-body">
+									<ul class="pl-3 mt-2">
+										<li>韩国美食荟萃</li>
+									</ul>
+									</div>
+							</div>
+						</div>
+						</div>
+					</div>
+			</div>
+			<div class="content border-left border-right border-dark d-flex flex-wrap">
+				<div class="content_title d-flex flex-wrap flex-column ml-3 col-12">
+					<h1 class="mb-3">韩国美食荟萃</h1>
+					<div class="d-flex flex-row border-bottom border-muted pb-4 font_content_size">
+						<a href="#">首页</a>
+						<div><img src="./lnb_bg_dapth2_off.png" alt></div>
+						<a href="#">美食天堂</a>
+						<div><img src="./lnb_bg_dapth2_off.png" alt></div>
+						<a href="#">韩国美食荟萃</a>
+						<div><img src="./lnb_bg_dapth2_off.png" alt></div>
+						<a href="#">韩国美食荟萃</a>
+					</div>
+				</div>
+				<div class="content_dtl">
+					<p class="pt-5 pb-3 ml-4 font_content_size ">从拌饭、烤肉等传统饮食，到各地区的特色乡土料理，人人都爱的夜宵，多样美味的街头小吃以及光是看看就会心情变好的精美甜点，旅行中绝对不可缺少的就是美食了。介绍可以在韩国品尝到的各色料理、美味。</p>
+				</div>
+				<div class="d-flex flex-wrap content_tj">
+					<div class="col-sm-12 col-md-4 ">
+						<div class="content_content mx-1 pb-1 bg-light">
+							<div>
+								<img class="w-100" src="./2481277_image_13.jpg" alt>
+							</div>
+							<h3 class="font_title_size mt-1">不可不知的明洞美味餐厅LIST</h3>
+							<span class="font_content_size">明洞(명동)是外国游客云集的地区之一。人气旺、客流量大，因此各处也隐藏着很多人气餐厅。</span>
+						</div>
+					</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content bg-light mx-1 pb-1">
+						<div>
+							<img class="w-100" src="./2481277_image_16.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">享受秋夜的方式，首尔屋顶酒吧</h3>
+						<span class="font_content_size">送走炎热的夏季迎来凉爽的金秋。为了慢慢享受秋夜这一刻，本文带领大家来到屋顶酒吧。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_17.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">韩流明星的心头爱，明星常去餐厅</h3>
+						<span class="font_content_size ">喜欢一个人就会好奇他的一切。喜爱自己的爱豆也是一样的心情。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_18.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">沙冰，爱上韩国夏季的理由!</h3>
+						<span class="font_content_size">沙冰是韩国人夏季最喜欢的冷饮之一。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_21.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">驱赶暑热的韩国夏日小吃</h3>
+						<span class="font_content_size">韩国的夏季从6月中旬开始，特别是7月中旬起，天气开始炎热，温度超过30度。</span>
+					</div>
+				</div>	
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_22.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">弘大的人气餐厅 Best 10</h3>
+						<span class="font_content_size">充满青春气息与热情的街区，弘大(홍대)！是韩国的年轻人们都喜欢逛的街区，汇集了很多好氛围的咖啡厅与餐厅。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_23.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">咖啡厅迷妹迷弟注意啦！5家首尔最HOT CAFÉ</h3>
+						<span class="font_content_size">充斥着醒脑的咖啡因与香甜甜点的咖啡厅是旅行中不可缺少的环节。咖啡厅不仅给旅者们提供休息空间，而且风格独特的...</span>
+					</div>
+				</div>	
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_25.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">在付岩洞(부암동)吃喝玩乐</h3>
+						<span class="font_content_size">付岩洞是一片过去与现在共存的特别区域。</span>
+					</div>
+				</div>	
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_26.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">美味并健康的韩国“有机农甜品”</h3>
+						<span class="font_content_size">甜品只要味道好就受欢迎的假设已经不符合当今市场了。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_27.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">一个人更开心！首尔的独餐∙独饮PLACE</h3>
+						<span class="font_content_size">现在有越来越多的朋友喜欢上了一个人吃饭的方式。而独餐∙独饮也已渐渐形成一种文化。</span>
+					</div>
+				</div>	
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_9.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">甜美深情的巧克力甜品店TOP 6</h3>
+						<span class="font_content_size">每到西方情人节所在的2月份，韩国的巧克力商品以及以巧克力为主题的热门店铺都顾客满门。</span>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 ">
+					<div class="content_content mx-1 pb-1 bg-light">
+						<div>
+							<img class="w-100" src="./2481277_image_13.jpg" alt>
+						</div>
+						<h3 class="font_title_size mt-1">乘坐深夜巴士出发的“美食首尔之旅”</h3>
+						<span class="font_content_size">享用美食总是快乐的，不过旅行时在夜晚的街道上吃到的夜宵更加美味，也更难以忘怀。</span>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="d-flex justify-content-center bg-dark ">
+				<ul class="list-unstyled row no-gutters col-12 font_foot_title_size justify-content-md-around text-sm-center">
+					<li class=" pt-3 col-sm-6 col-md-2 "><span>旅游资讯翻译热线</span></li>
+					<li class=" pt-3 col-sm-6 col-md-2 "><span>预约指南</span></li>
+					<li class=" pt-3 col-sm-6 col-md-2 "><span>电子书(E-Books)</span></li>
+					<li class=" pt-3 col-sm-6 col-md-2 "><span>韩国医疗观光</span></li>
+					<li class=" pt-3 col-sm-6 col-md-2 "><span>本呢客雅</span></li>
+				</ul>
+			</div>
+		</div>
+  </div>
+</body>
+</html>
